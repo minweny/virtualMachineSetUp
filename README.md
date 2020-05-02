@@ -8,6 +8,10 @@ virtualbox vs. vmware[https://www.nakivo.com/blog/vmware-vs-virtual-box-comprehe
 
 VirtualBox sets two NIC  
 [https://medium.com/@smiles.aayush/setup-nat-and-host-only-network-on-oracle-vm-virtualbox-9341d7babafe]  
+
+hyper-v 
+[https://docs.microsoft.com/en-us/virtualization/hyper-v-on-windows/user-guide/setup-nat-network] 
+
 ```
 
 
