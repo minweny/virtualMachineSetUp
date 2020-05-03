@@ -128,3 +128,6 @@ netsh firewall (deprecated after XP and 2003)
 netsh advfirewall (Vista, 7, and 2008) 
 no tutorials, to be continued 
 
+iptables tutorial 
+[http://www.zsythink.net/archives/1199]   
+[https://www.karlrupp.net/en/computer/nat_tutorial]   
