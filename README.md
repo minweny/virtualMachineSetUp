@@ -132,6 +132,7 @@ iptables tutorial
 [http://www.zsythink.net/archives/1199]   
 [https://www.karlrupp.net/en/computer/nat_tutorial]   
 
-Setup Windows Server 2016 as a NAT Router 
+Setup Windows Server 2016 as a NAT Router    
 [https://www.experiencingit.net/windows/windows-server/windows-server-2016-nat-router/]   
+For win10, we don't have server manager, so it doesn't work.
 
