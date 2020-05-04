@@ -140,3 +140,6 @@ Good question:
 Port forward- Why is iptables with POSTROUTING rule required?  
 [https://unix.stackexchange.com/questions/322879/port-forward-why-is-iptables-with-postrouting-rule-required]  
 
+Windows 10 pro as a NAT between two interfaces (to route VM traffic trough a VPN connection on the host) 
+[https://serverfault.com/questions/911578/windows-10-pro-as-a-nat-between-two-interfaces-to-route-vm-traffic-trough-a-vpn] 
+
