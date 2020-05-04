@@ -134,5 +134,9 @@ iptables tutorial
 
 Setup Windows Server 2016 as a NAT Router    
 [https://www.experiencingit.net/windows/windows-server/windows-server-2016-nat-router/]   
-For win10, we don't have server manager, so it doesn't work.
+For win10, we don't have server manager, so it doesn't work.   
+
+Good question: 
+Port forward- Why is iptables with POSTROUTING rule required?  
+[https://unix.stackexchange.com/questions/322879/port-forward-why-is-iptables-with-postrouting-rule-required]  
 
