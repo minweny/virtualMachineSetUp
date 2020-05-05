@@ -164,6 +164,8 @@ how nat works
 ![](nat.jpg)   
 ![](napt.jpg)   
 
+gitbook 网络基本功  
+[https://wizardforcel.gitbooks.io/network-basic/0.html]  
 
 
 
