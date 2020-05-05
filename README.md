@@ -143,3 +143,27 @@ Port forward- Why is iptables with POSTROUTING rule required?
 Windows 10 pro as a NAT between two interfaces (to route VM traffic trough a VPN connection on the host) 
 [https://serverfault.com/questions/911578/windows-10-pro-as-a-nat-between-two-interfaces-to-route-vm-traffic-trough-a-vpn] 
 
+routing table  
+```
+linux:
+sudo route -n
+route add default gw 192.168.1.200
+windows:
+route PRINT -4
+
+```   
+
+how router works  
+[https://blog.51cto.com/13401027/1975059] 
+[https://www.cnblogs.com/hoojjack/p/6747357.html]  
+[https://blog.51cto.com/13683137989/1880744] 
+[https://www.linuxidc.com/Linux/2016-12/138661.htm]   
+
+how nat works  
+[https://blog.csdn.net/hzhsan/article/details/45038265] 
+![](nat.jpg)   
+![](napt.jpg)   
+
+
+
+
