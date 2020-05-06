@@ -167,5 +167,24 @@ how nat works
 gitbook 网络基本功  
 [https://wizardforcel.gitbooks.io/network-basic/0.html]  
 
+Host Virtual Adapter[https://www.vmware.com/support/ws5/doc/ws_net_component_hostadapter.html]  
+The host virtual adapter is a virtual Ethernet adapter that appears to your host operating system as a VMware virtual Ethernet adapter on a Windows host and as a host-only interface on a Linux host. The host virtual adapter allows you to communicate between your host computer and the virtual machines on that host computer. The host virtual adapter is used in host-only and NAT configurations.
+
+The host virtual adapter is not connected to any external network unless you set up special software on the host computer — a proxy server, for example — to connect the host-only adapter to the physical network adapter.
+
+The software that creates the host virtual adapter is installed when you install VMware Workstation (on a Linux host, you must choose to make host-only networking available to your virtual machines). A host virtual adapter is then created automatically when you boot the host computer.
+
+You can set up additional host virtual adapters as needed.  
+
+VMware official doc  
+[https://www.vmware.com/support/ws5/doc/ws_net.html] 
+[https://pubs.vmware.com/workstation-11/index.jsp] 
+
+The difference between nat and host-only network   
+![](vmwareNatGraph.png) 
+The nat device in nat netwrok is connected to network. In host-only, it's not.   
+
+
+
 
 
