@@ -181,9 +181,24 @@ VMware official doc
 [https://pubs.vmware.com/workstation-11/index.jsp] 
 
 The difference between nat and host-only network   
-![](vmwareNatGraph.png) 
+![](vmwareNatGraph.png)    
 The nat device in nat netwrok is connected to network. In host-only, it's not.   
 
+unix routing basic   
+[https://www.networkworld.com/article/2707620/unix---getting-from-here-to-there--routing-basics-.html]   
+[https://opensource.com/business/16/8/introduction-linux-network-routing]  
+
+windows ip forwarding, acts as a router   
+[https://support.tetcos.com/support/solutions/articles/14000098272-how-to-enable-ip-forwarding-in-windows-to-perform-emulation-using-netsim-]   
+```
+netsh interface ipv4 show interfaces
+netsh interface ipv4 show interface <if id>
+
+```
+
+Masquerading in windows is called Internet Connection Sharing (ICS)  
+[https://superuser.com/questions/1088309/windows-10-nat-port-forwarding-ip-masquerade] 
+[https://www.keepthetech.com/2016/01/enable-ip-routing-on-windows10.html]  
 
 
 
