@@ -16,12 +16,19 @@ vmware tutorial
 [https://rednectar.net/2011/07/20/vmware-interfaces-tutorial/] 
 [https://blog.csdn.net/tjcwt2011/article/details/78659242]  
 
+My summary for vmware netwrok:   
+vmnet8 is just the device in vmware nat network. it's not the gateway. In windows route table, vmnet8 ip points to itself, so windows host cannot ping nat DNS, NHCP device. However, windows host can ping guest with the vmnet8 adapter. Don't know why.  
+vmnet8(nat) gateway ip, .2   
+vmnet1(host-only) gateway ip, .1 
+vmnet1 itself is the gateway. This is why host can ping every device in the host-only network. 
+
 ```
-
-
 show ip, NIC
 ip add
 ifconfig
+
+show all NIC
+ifconfig -a
 
 restart network
 sudo systemctl restart networking
@@ -36,10 +43,6 @@ iface enp0s8 inet static
 switch on the interface
 sudo ifup enp0s8 up
 sudo reboot
-
-
-
-
 
 Routing and Remote Access - Windows 10 Service
 doesn't find any tutorials
