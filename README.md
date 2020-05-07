@@ -187,6 +187,11 @@ The nat device in nat netwrok is connected to network. In host-only, it's not.
 unix routing basic   
 [https://www.networkworld.com/article/2707620/unix---getting-from-here-to-there--routing-basics-.html]   
 [https://opensource.com/business/16/8/introduction-linux-network-routing]  
+[https://unix.stackexchange.com/questions/14056/what-is-kernel-ip-forwarding] 
+[https://unix.stackexchange.com/questions/322879/port-forward-why-is-iptables-with-postrouting-rule-required]  
+[https://unix.stackexchange.com/questions/402233/what-is-the-difference-between-nat-output-chain-and-nat-postrouting-chain]   
+[https://unix.stackexchange.com/questions/280114/why-does-snat-happen-in-postrouting-chain-and-dnat-in-prerouting-chain]   
+
 
 windows ip forwarding, acts as a router   
 [https://support.tetcos.com/support/solutions/articles/14000098272-how-to-enable-ip-forwarding-in-windows-to-perform-emulation-using-netsim-]   
