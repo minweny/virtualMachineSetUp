@@ -14,6 +14,8 @@ hyper-v
 
 vmware tutorial   
 [https://rednectar.net/2011/07/20/vmware-interfaces-tutorial/] 
+[https://blog.csdn.net/tjcwt2011/article/details/78659242]  
+
 ```
 
 
