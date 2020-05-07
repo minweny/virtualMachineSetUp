@@ -12,6 +12,8 @@ VirtualBox sets two NIC
 hyper-v 
 [https://docs.microsoft.com/en-us/virtualization/hyper-v-on-windows/user-guide/setup-nat-network] 
 
+vmware tutorial   
+[https://rednectar.net/2011/07/20/vmware-interfaces-tutorial/] 
 ```
 
 
@@ -205,6 +207,14 @@ Masquerading in windows is called Internet Connection Sharing (ICS)
 [https://superuser.com/questions/1088309/windows-10-nat-port-forwarding-ip-masquerade] 
 [https://www.keepthetech.com/2016/01/enable-ip-routing-on-windows10.html]  
 
+Why Does My VMware NAT work?  
+[https://superuser.com/questions/1127750/why-does-my-vmware-nat-work]   
 
+Linux find gateway   
+[https://www.cyberciti.biz/faq/how-to-find-gateway-ip-address/]   
+```
+ip r
+ip route
+```
 
 
