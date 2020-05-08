@@ -24,6 +24,9 @@ install vnc
 take snapshot before your operation 
 [https://www.digitalocean.com/community/tutorials/how-to-install-and-configure-vnc-on-ubuntu-18-04] 
 
+局域网访问电脑中VMware虚拟机 
+[https://blog.csdn.net/u012268339/article/details/61204801] 
+
 ubuntu change hostname 
 ```
 Type the following command to edit /etc/hostname using nano or vi text editor:
