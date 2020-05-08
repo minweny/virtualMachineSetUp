@@ -6,6 +6,10 @@ virtualbox vs. vmware[https://www.nakivo.com/blog/vmware-vs-virtual-box-comprehe
 ![virtualboxNetwork](virtualboxNetwork.png)
 ![vmwareNetwork](vmwareNetwork.png)
 
+vmware ip range 
+[https://www.vmware.com/support/ws55/doc/ws_net_advanced_ipaddress.html] 
+![](vmwareIPRange.png)
+
 VirtualBox sets two NIC  
 [https://medium.com/@smiles.aayush/setup-nat-and-host-only-network-on-oracle-vm-virtualbox-9341d7babafe]  
 
