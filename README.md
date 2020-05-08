@@ -22,6 +22,50 @@ vmnet8(nat) gateway ip, .2
 vmnet1(host-only) gateway ip, .1 
 vmnet1 itself is the gateway. This is why host can ping every device in the host-only network. 
 
+If you use second NIC in vmware, it may down at the beginning. 
+[https://www.2daygeek.com/enable-disable-up-down-nic-network-interface-port-linux-using-ifconfig-ifdown-ifup-ip-nmcli-nmtui/] 
+
+ubuntu static ip  
+[https://linuxconfig.org/how-to-configure-static-ip-address-on-ubuntu-18-10-cosmic-cuttlefish-linux]  
+[https://www.howtoforge.com/linux-basics-set-a-static-ip-on-ubuntu]  
+```
+new version
+/etc/netplan/50-cloud-init.yaml
+network:
+  version: 2
+  renderer: networkd
+  ethernets:
+    enp0s3:
+     dhcp4: no
+     addresses: [192.168.1.233/24]
+     gateway4: 192.168.1.1
+     nameservers:
+       addresses: [8.8.8.8,8.8.4.4]
+       
+network:
+  version: 2
+  renderer: networkd
+  ethernets:
+    eth0:
+      # Note, "dhcp4/6: no" not needed
+      addresses: [192.168.10.254/24]
+      gateway4: 192.168.10.1
+      nameservers:
+        addresses: [192.168.10.1,192.168.10.252]
+    eth1:
+      # Note, "dhcp4/6: no" not needed
+      addresses: [192.168.20.10/24]
+      gateway4: 192.168.20.1
+      nameservers:
+        addresses: [192.168.20.1,192.168.20.252]
+
+sudo netplan apply
+```
+
+```
+ifconfig <NIC> up
+```
+
 ```
 show ip, NIC
 ip add
