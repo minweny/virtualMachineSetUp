@@ -63,6 +63,12 @@ two NIC
 You have built two or more network cards into one Linux system and each of these cards has its own default gateway. By default, you can only have one default gateway on a system. The case described would lead to asynchronous routing, whereby the router would reject the packets as appropriate. 
 [https://www.thomas-krenn.com/en/wiki/Two_Default_Gateways_on_One_System] 
 
+windows route vs. linux route 
+route add is persistent in windows. 
+it disappears in linux after reboot. 
+if you have multiple nics, set up static ip, or it may be down. 
+do not change yaml file name, which would influence route table. 
+
 edit windows route table 
 [https://www.cnblogs.com/yzeng/p/3787717.html] 
 [https://www.cnblogs.com/lightnear/archive/2013/02/03/2890835.html] 
