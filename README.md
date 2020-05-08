@@ -16,6 +16,21 @@ vmware tutorial
 [https://rednectar.net/2011/07/20/vmware-interfaces-tutorial/] 
 [https://blog.csdn.net/tjcwt2011/article/details/78659242]  
 
+ubuntu change hostname 
+```
+Type the following command to edit /etc/hostname using nano or vi text editor:
+sudo nano /etc/hostname
+Delete the old name and setup new name.
+Next Edit the /etc/hosts file:
+sudo nano /etc/hosts
+Replace any occurrence of the existing computer name with your new one.
+Reboot the system to changes take effect:
+sudo reboot
+```
+
+vmware virtual machine clone 
+To save time, just choose linked clone. Then change adapter mac address, hostname. 
+
 My summary for vmware netwrok:   
 vmnet8 is just the device in vmware nat network. it's not the gateway. In windows route table, vmnet8 ip points to itself, so windows host cannot ping nat DNS, NHCP device. However, windows host can ping guest with the vmnet8 adapter. Don't know why.  
 vmnet8(nat) gateway ip, .2   
@@ -39,6 +54,16 @@ If you use second NIC in vmware, it may down at the beginning.
 ubuntu static ip  
 [https://linuxconfig.org/how-to-configure-static-ip-address-on-ubuntu-18-10-cosmic-cuttlefish-linux]  
 [https://www.howtoforge.com/linux-basics-set-a-static-ip-on-ubuntu]  
+
+linux multi task 
+[https://chrisjean.com/multitasking-from-the-linux-command-line-plus-process-prioritization/] 
+```
+fg 1
+sudo kill %1
+# more powerful
+sudo kill -9 %1
+```
+
 ```
 new version
 /etc/netplan/50-cloud-init.yaml
