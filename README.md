@@ -22,6 +22,17 @@ vmnet8(nat) gateway ip, .2
 vmnet1(host-only) gateway ip, .1 
 vmnet1 itself is the gateway. This is why host can ping every device in the host-only network. 
 
+change route table  
+[https://en.wikiversity.org/wiki/Computer_Networks/Route/Modify]  
+```
+ route delete 0.0.0.0
+ route add 0.0.0.0 mask 0.0.0.0 <gateway>
+```
+
+How To List and Delete Iptables Firewall Rules  
+[https://www.digitalocean.com/community/tutorials/how-to-list-and-delete-iptables-firewall-rules] 
+
+
 If you use second NIC in vmware, it may down at the beginning. 
 [https://www.2daygeek.com/enable-disable-up-down-nic-network-interface-port-linux-using-ifconfig-ifdown-ifup-ip-nmcli-nmtui/] 
 
