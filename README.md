@@ -55,6 +55,108 @@ ubuntu static ip
 [https://linuxconfig.org/how-to-configure-static-ip-address-on-ubuntu-18-10-cosmic-cuttlefish-linux]  
 [https://www.howtoforge.com/linux-basics-set-a-static-ip-on-ubuntu]  
 
+two NIC 
+You have built two or more network cards into one Linux system and each of these cards has its own default gateway. By default, you can only have one default gateway on a system. The case described would lead to asynchronous routing, whereby the router would reject the packets as appropriate. 
+[https://www.thomas-krenn.com/en/wiki/Two_Default_Gateways_on_One_System] 
+
+edit windows route table 
+[https://www.cnblogs.com/yzeng/p/3787717.html] 
+[https://www.cnblogs.com/lightnear/archive/2013/02/03/2890835.html] 
+
+edit linux route table 
+[https://www.computerhope.com/unix/route.htm] 
+[https://www.thegeekstuff.com/2012/04/route-examples/] 
+[https://www.cyberciti.biz/faq/linux-route-add/]
+```
+use
+route -n
+instead of 
+route
+
+route add -net 192.56.76.0 netmask 255.255.255.0 dev eth0
+adds a route to the network 192.56.76.x via "eth0" The Class C netmask modifier is not really necessary here because >192.* is a Class C IP address. The word "dev" can be omitted here.
+
+route add default gw 192.168.1.10
+
+route add -net 192.168.1.0 netmask 255.255.255.0 gw 192.168.1.10
+
+Route all traffic via 192.168.1.254 gateway connected via eth0 network interface:
+# route add default gw 192.168.1.254 eth0
+
+sudo route del -net 192.168.3.0 gw 192.168.1.1 netmask 255.255.255.0 dev eth0
+
+route del default gw 192.168.1.1
+```
+
+netplan tutorial, and route 
+[https://netplan.io/examples] 
+[https://linuxconfig.org/how-to-add-static-route-with-netplan-on-ubuntu-20-04-focal-fossa-linux] 
+[https://www.networkinghowtos.com/howto/adding-persistent-static-routes-on-ubuntu-18-04-and-higher-using-netplan/] 
+```
+example[https://askubuntu.com/questions/1062902/ubuntu-18-04-netplan-static-routes] 
+
+In general, what you want here is:
+
+Set up a single default gateway (with gateway4), on the interface that goes to the Internet. If you set default gateways on both, then half the packets will be routed to your Intranet and won't be able to reach their desintation.
+
+If your Intranet has multiple subnets, then you need static routes to reach those through the interface connected to your Intranet. (One example might be routing any RFC1918 subnets to that interface, which would probably be a good idea.)
+
+Now, in your specific example, you didn't describe your Intranet completely, but let's assume your Intranet is made of the 10.185.x.y network, in other words, 10.185.0.0/16.
+
+Let's also assume your enp3s0 interface giving you access to the intranet will receive an IP in the 10.185.0.z subnet, in other words, 10.185.0.0/24 subnet, and that the gateway in that subnet is 10.185.0.1.
+
+So you need a static route to reach the remaining of the 10.185.x.y subnets where x is not 0.
+
+You can use a configuration such as the one below to set this up:
+
+network:
+  version: 2
+  renderer: networkd
+  ethernets:
+        enp3s0:
+            addresses: []
+            dhcp4: true
+            nameservers:
+              addresses: [10.185.x.x, y.y.y.y]
+            routes:
+            - to: 10.185.0.0/16
+              via: 10.185.0.1
+  wifis:
+        wlp2s0:
+            addresses: []
+            dhcp4: true
+            optional: true
+            gateway4: 192.168.8.1
+            access-points:
+                 "Wifi":
+                    password: "password"
+            nameservers:
+              addresses: [8.8.8.8,8.8.4.4]
+In this edited configuration, notice that:
+
+There is no gateway4 in enp3s0 configuration, since you don't want traffic to go to that interface by default, only when it's traffic destined to your Intranet, which is set up through the static route.
+
+Conversely, the wlp2s0 doesn't need any static routes, since it has a default gateway attached to it, which is enough.
+
+There's no need for routing tables and routing policies, all you need to do is set up a static route (or a few static routes) to cover the internal addresses in your Intranet and route them through the IP of the gateway in that network that can route you to the other subnets you're not directly connected to.
+
+Please note that this setup actually depends on some of what your DHCP server in the internal network is provisioning for you, such as your interface being in the 10.185.0/24 network and that 10.185.0.1 is the gateway you can use in that interface... For that reason, perhaps a better setup would be to have the DHCP server in your Intranet push the static routes (instead of configuring them in netplan.) That way if the Intranet is reconfigured, perhaps to change the IP of the gateway, or perhaps extended to include other RFC1819 private ranges, only the DHCP server needs to be reconfigured and not everything else...
+
+But if the DHCP server is out of your control, then this setup might be acceptable, assuming the internal network is not reconfigured too often so that the gateway IP would change. You might want to consider adding static routes to all the RFC1918 ranges, since those will be invalid in the Internet, so they might only be made valid in the Intranet:
+
+routes:
+- to: 10.0.0.0/8
+  via: 10.185.0.1
+- to: 172.16.0.0/12
+  via: 10.185.0.1
+- to: 192.168.0.0/16
+  via: 10.185.0.1
+I hope you find this helpful!
+
+```
+
+
+
 linux multi task 
 [https://chrisjean.com/multitasking-from-the-linux-command-line-plus-process-prioritization/] 
 ```
@@ -98,10 +200,12 @@ network:
 sudo netplan apply
 ```
 
+start nic 
 ```
 ifconfig <NIC> up
 ```
 
+nic codes 
 ```
 show ip, NIC
 ip add
@@ -110,15 +214,21 @@ ifconfig
 show all NIC
 ifconfig -a
 
+# old version
 restart network
 sudo systemctl restart networking
 service network restart
+# new version
+sudo netplan apply
 
+# old
 sudo vim /etc/network/interfaces
 Make the following entry in the end and save the file.
 auto enp0s8
 iface enp0s8 inet static
 192.168.56.101
+# new
+sudo nano /etc/netplan/*.yml
 
 switch on the interface
 sudo ifup enp0s8 up
