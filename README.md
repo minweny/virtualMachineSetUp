@@ -68,14 +68,26 @@ You have built two or more network cards into one Linux system and each of these
 [https://www.thomas-krenn.com/en/wiki/Two_Default_Gateways_on_One_System] 
 
 windows route vs. linux route 
-route add is persistent in windows. 
+route add -p is persistent in windows. 
 it disappears in linux after reboot. 
 if you have multiple nics, set up static ip, or it may be down. 
 do not change yaml file name, which would influence route table. 
 
 edit windows route table 
+[https://www.howtogeek.com/howto/windows/adding-a-tcpip-route-to-the-windows-routing-table/] 
+[https://virtuallylg.wordpress.com/2018/03/20/how-to-add-a-persistent-static-route-to-windows/] 
 [https://www.cnblogs.com/yzeng/p/3787717.html] 
 [https://www.cnblogs.com/lightnear/archive/2013/02/03/2890835.html] 
+```
+route ADD 192.168.35.0 MASK 255.255.255.0 192.168.0.2
+route delete 192.168.35.0
+ROUTE ADD 10.10.10.0 MASK 255.255.255.0 192.168.1.1 METRIC 1
+# persistent
+ROUTE -P ADD 10.10.10.0 MASK 255.255.255.0 192.168.1.1 METRIC 1
+This writes the persistent route to the following Windows Registry key as a string value (REG_SZ):
+HKEY_LOCAL_MACHINE\SYSTEM\CURRENTCONTROLSET\SERVICES\TCPIP\PARAMETERS\PERSISTENTROUTES
+
+```
 
 edit linux route table 
 [https://www.computerhope.com/unix/route.htm] 
