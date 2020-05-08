@@ -20,6 +20,10 @@ vmware tutorial
 [https://rednectar.net/2011/07/20/vmware-interfaces-tutorial/] 
 [https://blog.csdn.net/tjcwt2011/article/details/78659242]  
 
+install vnc 
+take snapshot before your operation 
+[https://www.digitalocean.com/community/tutorials/how-to-install-and-configure-vnc-on-ubuntu-18-04] 
+
 ubuntu change hostname 
 ```
 Type the following command to edit /etc/hostname using nano or vi text editor:
