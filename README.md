@@ -24,6 +24,16 @@ install vnc
 take snapshot before your operation 
 [https://www.digitalocean.com/community/tutorials/how-to-install-and-configure-vnc-on-ubuntu-18-04] 
 
+bridge wifi with ethernet 
+[https://www.elementzonline.com/blog/sharing-or-bridging-internet-to-ethernet-from-wifi-raspberry-pI] 
+
+DHCP server: A DHCP Server is a network server that automatically provides and assigns IP addresses, default gateways and other network parameters to client devices. It relies on the standard protocol known as Dynamic Host Configuration Protocol or DHCP to respond to broadcast queries by clients. In other words, since the Dnsmasq is running in RPI, our RPI will be acting as a DHCP server over the ethernet, which leases IP addresses to the connected devices in the ethernet port just like any other router. Thus the devices and RPI forms a LAN network of its own with RPI acting as the router.  
+
+DNS server: A DNS server is a computer server that contains a database of public IP addresses and their associated hostnames, and in most cases serves to resolve, or translate, those names to IP addresses as requested. DNS servers run special software and communicate with each other using special protocols. Storing all address resolution rules(ip and domain mapping) is impossible for a small device like RPI. Instead of that, the DNS queries will be proxied to a true updated DNS server such as Google DNS using the Dnsmasq library.  
+```
+
+```
+
 局域网访问电脑中VMware虚拟机 
 [https://blog.csdn.net/u012268339/article/details/61204801] 
 remermeber to open port in win10 firewall 
