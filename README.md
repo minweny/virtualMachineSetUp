@@ -26,6 +26,25 @@ take snapshot before your operation
 
 局域网访问电脑中VMware虚拟机 
 [https://blog.csdn.net/u012268339/article/details/61204801] 
+remermeber to open port in win10 firewall 
+[https://www.tomshardware.com/news/how-to-open-firewall-ports-in-windows-10,36451.html] 
+```
+Open firewall ports in Windows 10
+You can manually permit a program to access the internet by opening a firewall port. You will need to know what port it uses and the protocol to make this work.
+
+Navigate to Control Panel, System and Security and Windows Firewall.
+Select Advanced settings and highlight Inbound Rules in the left pane.
+Right click Inbound Rules and select New Rule.
+Add the port you need to open and click Next.
+Add the protocol (TCP or UDP) and the port number into the next window and click Next.
+Select Allow the connection in the next window and hit Next.
+Select the network type as you see fit and click Next.
+Name the rule something meaningful and click Finish.
+You have now opened a firewall port in Windows 10!
+
+How to view the list of open ports in Windows
+netstat -a
+```
 
 ubuntu change hostname 
 ```
