@@ -46,6 +46,8 @@ How to view the list of open ports in Windows
 netstat -a
 ```
 
+telenet 127.0.0.1 portXXX  验证是否端口开放成功。
+
 ubuntu change hostname 
 ```
 Type the following command to edit /etc/hostname using nano or vi text editor:
