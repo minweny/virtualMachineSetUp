@@ -22,7 +22,20 @@ vmware tutorial
 
 install vnc 
 take snapshot before your operation 
-[https://www.digitalocean.com/community/tutorials/how-to-install-and-configure-vnc-on-ubuntu-18-04] 
+[https://www.digitalocean.com/community/tutorials/how-to-install-and-configure-vnc-on-ubuntu-18-04]     
+default brower doesn't work     
+
+install chromium    
+```
+sudo apt-get install chromium-browser
+```
+
+change timezone     
+[https://linuxize.com/post/how-to-set-or-change-timezone-on-ubuntu-18-04/]      
+```
+timedatectl list-timezones | grep Chicago
+sudo timedatectl set-timezone America/Chicago
+```
 
 bridge wifi with ethernet 
 [https://www.elementzonline.com/blog/sharing-or-bridging-internet-to-ethernet-from-wifi-raspberry-pI] 
