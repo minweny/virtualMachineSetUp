@@ -205,6 +205,8 @@ network:
                     password: "password"
             nameservers:
               addresses: [8.8.8.8,8.8.4.4]
+routes to via, means the static route table  
+
 In this edited configuration, notice that:
 
 There is no gateway4 in enp3s0 configuration, since you don't want traffic to go to that interface by default, only when it's traffic destined to your Intranet, which is set up through the static route.
